@@ -19,7 +19,7 @@
 	</nav>
 	<div style="padding:20px 100px 50px 100px;">
 	    <?php	    
-	    $con = new mysqli("localhost", "root", "B1gEd<3", "menu");
+	    $con = new mysqli("localhost", "root", "B1gEd<3", "rr");
 	    if (mysqli_connect_errno())
 		die("Error: ".mysqli_connect_error());
 	    else {
@@ -41,6 +41,12 @@
 			    echo "Error al subir imagen";
 			}
 		    }
+		} else if(isset($_POST["elimina"])) {
+		    $id = preg_replace("/[^\d]+/", "", $_POST['id']);
+		    $sql = "DELETE FROM productos WHERE id=".$id;
+		    $res = mysqli_query($con, $sql);
+		    if(!$res)
+			echo "Error: ". $con->error;
 		}
 		echo "<h2>Bienvenid@ admin!!</h2>";
 		echo "<h3>Productos del menú</h3>";
@@ -83,7 +89,17 @@
 		</div>
 		Imagen: <input type="file" name="imagen"><br/><br/>
 		<button name="submit" type="submit" style="padding:10px;width:100px">Aceptar</button>
-	    </form>	    
+	    </form>
+	    <h3>Elimina un producto</h3>
+	    <form method="post" class="uk-form-horizontal uk-margin-small">
+		<div class="uk-margin">
+		    <label class="uk-form-label" for="precio">ID</label>
+		    <div class="uk-form-controls">
+			<input name="id" type="number" min="1" class="uk-input uk-form-width-medium" id="id" placeholder="ID de producto">
+		    </div>
+		</div>
+		<button style="background:red;padding: 10px;width:100px" name="elimina" type="submit">Eliminar</button>
+	    </form>
 	</div>
     </body>
 </html>
