@@ -1,0 +1,44 @@
+html {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+.uk-card-default, body, .uk-navbar-container:not(.uk-navbar-transparent) {
+    background: black;
+    color: white;
+}
+
+.uk-navbar-nav > li.uk-active > a, h1, h2, h3, h5 {
+    color: white;
+}
+
+.uk-navbar-nav > li > a {
+    text-transform: none;
+}
+
+h1,.uk-navbar-item, .uk-navbar-nav > li > a, .uk-navbar-toggle {
+    font-family: Georgia, serif;
+}
+
+button {
+    background: yellow;
+    border: 1px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 2px;
+    font-family: Georgia, serif;
+    color:black;
+}
+
+button:hover {
+    opacity: 0.97;
+}
+
+.uk-form-horizontal .uk-form-label {
+    color: white;
+}
